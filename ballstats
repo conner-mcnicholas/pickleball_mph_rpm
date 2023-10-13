@@ -1,0 +1,3 @@
+#!/bin/sh
+
+python /home/conner/pickleball_mph_rpm/mphrpm.py
