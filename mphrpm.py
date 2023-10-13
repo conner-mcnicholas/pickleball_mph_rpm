@@ -13,9 +13,9 @@ def prompt_calc():
     while True:
         metric = str.upper(input('Input "RPM" or "MPH"\n\t'))
         if metric == 'MPH':
-            x = float(input('\nDistance traveled along the baseline axis = '))
-            y = float(input('Distance traveled along the sideline axis = '))
-            z = float(input('Distance traveled vertically = '))
+            x = float(input('\nDistance (ft) traveled along the baseline axis = '))
+            y = float(input('Distance (ft) traveled along the sideline axis = '))
+            z = float(input('Distance (ft) traveled vertically = '))
             f = float(input('Elapsed frames = '))
             fr = float(input('Frame rate = '))
             mph(x,y,z,f,fr)
