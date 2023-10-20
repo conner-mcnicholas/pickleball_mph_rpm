@@ -1,3 +1,3 @@
 #!/bin/sh
 
-python $HOME/pickleball_mph_rpm/mphrpm.py
+rlwrap -S" ~-~> " -pBlue -r python $HOME/pickleball_mph_rpm/mphrpm.py
