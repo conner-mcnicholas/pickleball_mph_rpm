@@ -2,11 +2,11 @@
 
 def mph(dx,dy,dz,frames,framerate):
     d = ((dx**2)+(dy**2)+(dz**2))**.5
-    print(f'Pythagorean distance = {d}')
+    print(f'Pythagorean distance = {round(d,2)} feet')
     t = frames/framerate
-    print(f'Elapsed time = {t} seconds')
+    print(f'Elapsed time = {round(t,2)} seconds')
     fps = d/t
-    [print(f'Converting {fps} feet per second yields:')]
+    print(f'Converting {round(fps,2)} feet per second yields:')
     mph = fps*3600/5280
     print(f'\t\tSPEED = {round(mph,2)} MPH\n')
 
