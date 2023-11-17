@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import sys
+
 def mph(dx,dy,dz,frames,framerate):
     d = ((dx**2)+(dy**2)+(dz**2))**.5
     print(f'Pythagorean distance = {round(d,2)} feet')
@@ -16,18 +18,30 @@ def rpm(f,fr):
 
 def prompt_calc():
     while True:
-        metric = input('Are you calculating RPM or [MPH]?"\n\t')
+        if len(sys.argv) > 1:
+            if str.upper(sys.argv[1]) == "MPH":
+                metric = "MPH"
+            elif str.upper(sys.argv[1]) == "RPM":
+                metric = "RPM"
+            else:
+                print('First command line argument not recognized, assuming MPH')
+                metric = "MPH"
+        else:
+            metric = input('Are you calculating RPM or [MPH]?"\n\t')
+        if len(sys.argv) > 2:
+            fr = float(str.upper(sys.argv[2]))  
+        else:
+            fr = float(input('Frame rate = '))
+
         if (str.upper(metric) == 'MPH') or (metric == ''):
             x = float(input('\nDistance (ft) traveled along the baseline axis = '))
             y = float(input('Distance (ft) traveled along the sideline axis = '))
             z = float(input('Distance (ft) traveled vertically = '))
             f = float(input('Elapsed frames = '))
-            fr = float(input('Frame rate = '))
             mph(x,y,z,f,fr)
             break
         elif str.upper(metric) == 'RPM':
             f = float(input('\nElapsed frames for 1 revolution = '))
-            fr = float(input('Frame rate = '))
             rpm(f,fr)
             break
         else:
