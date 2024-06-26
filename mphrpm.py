@@ -31,13 +31,24 @@ def prompt_calc():
         if len(sys.argv) > 2:
             fr = float(str.upper(sys.argv[2]))  
         else:
-            fr = float(input('Frame rate = '))
-
+            fr = input('\nFrame rate [30 fps] = ')
+            print(f"fr = {fr}")
+            if fr == "":
+                fr = 30.0
+            else:
+                fr = float(fr)
         if (str.upper(metric) == 'MPH') or (metric == ''):
-            x = float(input('\nDistance (ft) traveled along the baseline axis = '))
-            y = float(input('Distance (ft) traveled along the sideline axis = '))
-            z = float(input('Distance (ft) traveled vertically = '))
+            d = {}
+            d['x'] = input('\nDistance (0 ft) traveled along the baseline axis = ')
+            d['y'] = input('Distance (0 ft) traveled along the sideline axis = ')
+            d['z'] = input('Distance (0 ft) traveled vertically = ')
             f = float(input('Elapsed frames = '))
+            for i in d.keys():
+                if d[i] == "":
+                    d[i] = 0.0
+                else:
+                    d[i] = float(i)
+            x,y,z = list(d.values())
             mph(x,y,z,f,fr)
             break
         elif str.upper(metric) == 'RPM':
