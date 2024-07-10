@@ -47,7 +47,7 @@ def prompt_calc():
                 if d[i] == "":
                     d[i] = 0.0
                 else:
-                    d[i] = float(i)
+                    d[i] = float(d[i])
             x,y,z = list(d.values())
             mph(x,y,z,f,fr)
             break
